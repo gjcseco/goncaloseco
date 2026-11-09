@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 6% 4%;
+    --foreground: 210 20% 95%;
+    --card: 240 5% 8%;
+    --card-foreground: 210 20% 95%;
+    --popover: 240 5% 8%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 187 80% 52%;
+    --primary-foreground: 240 6% 4%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 210 20% 88%;
+    --muted: 240 4% 14%;
+    --muted-foreground: 210 10% 58%;
+    --accent: 217 72% 56%;
+    --accent-foreground: 210 20% 7%;
+    --destructive: 0 62% 56%;
+    --destructive-foreground: 210 20% 5%;
+    --border: 240 4% 18%;
+    --input: 240 4% 18%;
+    --ring: 187 80% 52%;
+    --radius: 0.625rem;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.6);
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 350ms;
+  }
+
+  .dark {
+    --background: 240 6% 4%;
+    --foreground: 210 20% 95%;
+    --card: 240 5% 8%;
+    --card-foreground: 210 20% 95%;
+    --popover: 240 5% 8%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 187 80% 52%;
+    --primary-foreground: 240 6% 4%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 210 20% 88%;
+    --muted: 240 4% 14%;
+    --muted-foreground: 210 10% 58%;
+    --accent: 217 72% 56%;
+    --accent-foreground: 210 20% 7%;
+    --destructive: 0 62% 56%;
+    --destructive-foreground: 210 20% 5%;
+    --border: 240 4% 18%;
+    --input: 240 4% 18%;
+    --ring: 187 80% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  /* Keep anchored sections clear of the fixed navbar (h-16). */
+  scroll-padding-top: 4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*
+ * Scroll reveal. Content is visible by default (no JS, slow JS, reduced motion).
+ * It is only hidden once RevealObserver has added `reveal-ready` to <html>,
+ * and only for visitors who have not asked for reduced motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready .reveal {
+    transition:
+      opacity 500ms ease-out,
+      transform 500ms ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-ready .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .scroll-hint {
+    animation: scroll-hint 2s ease-in-out infinite;
+  }
+}
+
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Grid background pattern for hero */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glow effect */
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(34,211,238,0.15), 0 0 80px rgba(34,211,238,0.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(240 6% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(240 4% 20%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(240 4% 28%);
+}

@@ -1,0 +1,15 @@
+# Usa as regras por omissão do gitleaks e ignora apenas artefactos gerados.
+title = "portfolio gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Artefactos de build e dependências"
+paths = [
+  '''(^|/)node_modules/''',
+  '''(^|/)\.next/''',
+  '''(^|/)playwright-report/''',
+  '''(^|/)test-results/''',
+  '''(^|/)package-lock\.json$''',
+]
